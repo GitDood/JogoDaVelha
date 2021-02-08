@@ -3,7 +3,7 @@ body {
   }
   
   #canvas {
-    margin: 13vh auto;
+    margin: 11vh auto;
     border: 1px solid green;
     width: 60vh;
     height: 75vh;
@@ -11,10 +11,18 @@ body {
   }
   
   /* Placar */
+  #placar {
+    /* border: 1px solid black; */
+    display: flex;
+  }
+
   #placar .p-row{
-  /*   border: 1px solid red; */
-    float: left;
-    margin: 5vh 6.6vh;
+    border: 1px solid red;
+    /* float: left;
+    /* margin: 5vh 6.6vh; */
+    text-align: center;
+    width: 210px;
+    margin: 5vh 0;
   }
   
   #placar p, span {
