@@ -11,6 +11,7 @@ let a9 = document.querySelector('.a9');
 
 let border_p1 = document.getElementById('outline_p1');
 let border_p2 = document.getElementById('outline_p2');
+let tabuleiro = document.getElementById('tabuleiro');
 
 //Variable to keep track of whose turn it is
 var currentPlayer = 'X';
@@ -24,12 +25,13 @@ function changeTurn(){
         
         border_p2.style.border = '2px solid #375F1B';
         border_p1.style.border = 'none';
-        console.log('X')
+        console.log('X');
+
     } else {
         currentPlayer = 'X';
         border_p2.style.border = 'none';
         border_p1.style.border = '2px solid #375F1B';
-        console.log('O')
+        console.log('O');
     }
 }
 
@@ -37,7 +39,8 @@ function checkIf_GameOver(){
 
     //horizontal p/ X
     if (a1.innerHTML === 'X' && a2.innerHTML === 'X' && a3.innerHTML === 'X'){
-        alert('X ganhou')
+        alert('X ganhou');
+        // tabuleiro.style.pointerEvents = 'none';
     } else if (a4.innerHTML === 'X' && a5.innerHTML === 'X' && a6.innerHTML === 'X') {
         alert('X ganhou');
     } else if (a7.innerHTML === 'X' && a8.innerHTML === 'X' && a9.innerHTML === 'X') {
@@ -80,6 +83,8 @@ function checkIf_GameOver(){
     } else if (a3.innerHTML === 'O' && a5.innerHTML === 'O' && a7.innerHTML === 'O') {
         alert('O ganho');
     }
+
+
 }
 
 // console.log(changeTurn())
