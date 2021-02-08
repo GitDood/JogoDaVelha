@@ -22,17 +22,65 @@ function changeTurn(){
     if (currentPlayer == 'X') {
         currentPlayer = 'O';
         
-        border_p1.style.border = '2px solid #375F1B';
-        border_p2.style.border = 'none';
+        border_p2.style.border = '2px solid #375F1B';
+        border_p1.style.border = 'none';
         console.log('X')
     } else {
         currentPlayer = 'X';
-        border_p1.style.border = 'none';
-        border_p2.style.border = '2px solid #375F1B';
+        border_p2.style.border = 'none';
+        border_p1.style.border = '2px solid #375F1B';
         console.log('O')
     }
 }
 
+function checkIf_GameOver(){
+
+    //horizontal p/ X
+    if (a1.innerHTML === 'X' && a2.innerHTML === 'X' && a3.innerHTML === 'X'){
+        alert('X ganhou')
+    } else if (a4.innerHTML === 'X' && a5.innerHTML === 'X' && a6.innerHTML === 'X') {
+        alert('X ganhou');
+    } else if (a7.innerHTML === 'X' && a8.innerHTML === 'X' && a9.innerHTML === 'X') {
+        alert('X ganhou');
+
+    //Vertical p/ X 
+    } else if (a1.innerHTML === 'X' && a4.innerHTML === 'X' && a7.innerHTML === 'X') {
+        alert('X ganhou');
+    } else if (a2.innerHTML === 'X' && a5.innerHTML === 'X' && a8.innerHTML === 'X') {
+        alert('X ganhou');
+    } else if (a3.innerHTML === 'X' && a6.innerHTML === 'X' && a9.innerHTML === 'X') {
+        alert('X ganhou');
+
+    //Diagonal p/ X
+    } else if (a1.innerHTML === 'X' && a5.innerHTML === 'X' && a9.innerHTML === 'X') {
+        alert('X ganhou');
+    } else if (a3.innerHTML === 'X' && a5.innerHTML === 'X' && a7.innerHTML === 'X') {
+        alert('X ganhou');
+    }
+
+    //horizontal p/ O
+    if (a1.innerHTML === 'O' && a2.innerHTML === 'O' && a3.innerHTML === 'O'){
+        alert('O ganhou')
+    } else if (a4.innerHTML === 'O)' && a5.innerHTML === 'O)' && a6.innerHTML === 'O') {
+        alert('O ganhou');
+    } else if (a7.innerHTML === 'O' && a8.innerHTML === 'O' && a9.innerHTML === 'O') {
+        alert('O ganhou');
+
+    //Vertical p/ O
+    } else if (a1.innerHTML === 'O' && a4.innerHTML === 'O' && a7.innerHTML === 'O') {
+        alert('O ganhou');
+    } else if (a2.innerHTML === 'O' && a5.innerHTML === 'O' && a8.innerHTML === 'O') {
+        alert('O ganhou');
+    } else if (a3.innerHTML === 'O' && a6.innerHTML === 'O' && a9.innerHTML === 'O') {
+        alert('O ganhou');
+
+    //Diagonal p/ O
+    } else if (a1.innerHTML === 'O' && a5.innerHTML === 'O' && a9.innerHTML === 'O') {
+        alert('O ganhou');
+    } else if (a3.innerHTML === 'O' && a5.innerHTML === 'O' && a7.innerHTML === 'O') {
+        alert('O ganho');
+    }
+}
 
 // console.log(changeTurn())
 
@@ -75,8 +123,8 @@ function tileClicked(tile){
     } else if (tile === 'a9'){
         a9.innerHTML = letra;
         changeTurn();
-
     }
+    checkIf_GameOver();
 }
 
 // while (true) {
