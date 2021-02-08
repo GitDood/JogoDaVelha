@@ -9,20 +9,28 @@ let a7 = document.querySelector('.a7');
 let a8 = document.querySelector('.a8');
 let a9 = document.querySelector('.a9');
 
+let border_p1 = document.getElementById('outline_p1');
+let border_p2 = document.getElementById('outline_p2');
+
 //Variable to keep track of whose turn it is
 var currentPlayer = 'X';
+border_p1.style.border = '2px solid #375F1B';
 
-//Doesnt work, need a loop?
-function changeTurn(num){
-    num = 1
-    if (num == 1){
-        currentPlayer = "O"
-        num++
-    } else if (num == 2){
+function changeTurn(){
+
+    //Change turns ._.
+    if (currentPlayer == 'X') {
+        currentPlayer = 'O';
+        
+        border_p1.style.border = '2px solid #375F1B';
+        border_p2.style.border = 'none';
+        console.log('X')
+    } else {
         currentPlayer = 'X';
-        num--
+        border_p1.style.border = 'none';
+        border_p2.style.border = '2px solid #375F1B';
+        console.log('O')
     }
-    console.log(num)
 }
 
 
@@ -46,21 +54,27 @@ function tileClicked(tile){
 
     } else if (tile === 'a4'){
         a4.innerHTML = letra;
+        changeTurn();
 
     } else if (tile === 'a5'){
         a5.innerHTML = letra;
+        changeTurn();
 
     } else if (tile === 'a6'){
         a6.innerHTML = letra;
+        changeTurn();
 
     } else if (tile === 'a7'){
         a7.innerHTML = letra;
+        changeTurn();
 
     } else if (tile === 'a8'){
         a8.innerHTML = letra;
+        changeTurn();
 
     } else if (tile === 'a9'){
         a9.innerHTML = letra;
+        changeTurn();
 
     }
 }

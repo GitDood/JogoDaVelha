@@ -14,23 +14,43 @@ body {
   #placar {
     /* border: 1px solid black; */
     display: flex;
+    position: relative;
   }
 
   #placar .p-row{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     /* float: left;
     /* margin: 5vh 6.6vh; */
     text-align: center;
     width: 210px;
     margin: 5vh 0;
   }
-  
+
   #placar p, span {
     margin: 0;
     padding: 0;
     color: #375F1B;
     font-weight: bolder;
   }
+
+/* Outline Placar */
+#outline_p1 {
+  position: absolute;
+  /* border: 1px solid red; */
+  width: 16vh;
+  height: 7vh;
+  top: 4vh;
+  left: 7vh;
+}
+
+#outline_p2 {
+  position: absolute;
+  /* border: 1px solid red; */
+  width: 16vh;
+  height: 7vh;
+  top: 4vh;
+  right: 7vh;
+}
   
   .clear {
     clear: both;
@@ -52,6 +72,8 @@ body {
     box-sizing: border-box;
     text-align: center;
     padding-top: 6vh;
+    cursor: pointer;
+    font-weight: bolder;
   }
   /* Reiniciar */
   .restart {
