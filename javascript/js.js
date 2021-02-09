@@ -11,6 +11,8 @@ let a9 = document.querySelector('.a9');
 
 let border_p1 = document.getElementById('outline_p1');
 let border_p2 = document.getElementById('outline_p2');
+let score_p1 = document.getElementById('p1_score');
+let score_p2 = document.getElementById('p2_score');
 let tabuleiro = document.getElementById('tabuleiro');
 
 //Variable to keep track of whose turn it is
@@ -35,59 +37,37 @@ function changeTurn(){
     }
 }
 
+function cleanBoard() {
+    var x, i;
+    x = document.querySelectorAll(".b-spaces");
+    for (i = 0; i < x.length; i++) {
+      x[i].innerHTML  = "";
+    }
+  }
+
 function checkIf_GameOver(){
+    //If X win
+    if (a1.innerHTML === 'X' && a2.innerHTML === 'X' && a3.innerHTML === 'X' || a4.innerHTML === 'X' && a5.innerHTML === 'X' && a6.innerHTML === 'X'
+    || a7.innerHTML === 'X' && a8.innerHTML === 'X' && a9.innerHTML === 'X' || a1.innerHTML === 'X' && a4.innerHTML === 'X' && a7.innerHTML === 'X'
+    || a2.innerHTML === 'X' && a5.innerHTML === 'X' && a8.innerHTML === 'X' || a3.innerHTML === 'X' && a6.innerHTML === 'X' && a9.innerHTML === 'X'
+    || a1.innerHTML === 'X' && a5.innerHTML === 'X' && a9.innerHTML === 'X' || a3.innerHTML === 'X' && a5.innerHTML === 'X' && a7.innerHTML === 'X'){
 
-    //horizontal p/ X
-    if (a1.innerHTML === 'X' && a2.innerHTML === 'X' && a3.innerHTML === 'X'){
-        alert('X ganhou');
+        console.log('win')
         // tabuleiro.style.pointerEvents = 'none';
-    } else if (a4.innerHTML === 'X' && a5.innerHTML === 'X' && a6.innerHTML === 'X') {
-        alert('X ganhou');
-    } else if (a7.innerHTML === 'X' && a8.innerHTML === 'X' && a9.innerHTML === 'X') {
-        alert('X ganhou');
+        score_p1.innerHTML =+1;
+        cleanBoard()
 
-    //Vertical p/ X 
-    } else if (a1.innerHTML === 'X' && a4.innerHTML === 'X' && a7.innerHTML === 'X') {
-        alert('X ganhou');
-    } else if (a2.innerHTML === 'X' && a5.innerHTML === 'X' && a8.innerHTML === 'X') {
-        alert('X ganhou');
-    } else if (a3.innerHTML === 'X' && a6.innerHTML === 'X' && a9.innerHTML === 'X') {
-        alert('X ganhou');
-
-    //Diagonal p/ X
-    } else if (a1.innerHTML === 'X' && a5.innerHTML === 'X' && a9.innerHTML === 'X') {
-        alert('X ganhou');
-    } else if (a3.innerHTML === 'X' && a5.innerHTML === 'X' && a7.innerHTML === 'X') {
-        alert('X ganhou');
+    } else if (a1.innerHTML === 'O' && a2.innerHTML === 'O' && a3.innerHTML === 'O' || a4.innerHTML === 'O)' && a5.innerHTML === 'O)' && a6.innerHTML === 'O'
+    || a7.innerHTML === 'O' && a8.innerHTML === 'O' && a9.innerHTML === 'O' || a1.innerHTML === 'O' && a4.innerHTML === 'O' && a7.innerHTML === 'O'
+    || a2.innerHTML === 'O' && a5.innerHTML === 'O' && a8.innerHTML === 'O' || a3.innerHTML === 'O' && a6.innerHTML === 'O' && a9.innerHTML === 'O'
+    || a1.innerHTML === 'O' && a5.innerHTML === 'O' && a9.innerHTML === 'O' || a3.innerHTML === 'O' && a5.innerHTML === 'O' && a7.innerHTML === 'O'){
+        
+        console.log('winOO')
+        // tabuleiro.style.pointerEvents = 'none';
+        score_p2.innerHTML =+1;
+        cleanBoard();
     }
-
-    //horizontal p/ O
-    if (a1.innerHTML === 'O' && a2.innerHTML === 'O' && a3.innerHTML === 'O'){
-        alert('O ganhou')
-    } else if (a4.innerHTML === 'O)' && a5.innerHTML === 'O)' && a6.innerHTML === 'O') {
-        alert('O ganhou');
-    } else if (a7.innerHTML === 'O' && a8.innerHTML === 'O' && a9.innerHTML === 'O') {
-        alert('O ganhou');
-
-    //Vertical p/ O
-    } else if (a1.innerHTML === 'O' && a4.innerHTML === 'O' && a7.innerHTML === 'O') {
-        alert('O ganhou');
-    } else if (a2.innerHTML === 'O' && a5.innerHTML === 'O' && a8.innerHTML === 'O') {
-        alert('O ganhou');
-    } else if (a3.innerHTML === 'O' && a6.innerHTML === 'O' && a9.innerHTML === 'O') {
-        alert('O ganhou');
-
-    //Diagonal p/ O
-    } else if (a1.innerHTML === 'O' && a5.innerHTML === 'O' && a9.innerHTML === 'O') {
-        alert('O ganhou');
-    } else if (a3.innerHTML === 'O' && a5.innerHTML === 'O' && a7.innerHTML === 'O') {
-        alert('O ganho');
-    }
-
-
 }
-
-// console.log(changeTurn())
 
 function tileClicked(tile){
 
@@ -132,12 +112,8 @@ function tileClicked(tile){
     checkIf_GameOver();
 }
 
-// while (true) {
-//     //Make the player move
-
-//     //Check if game is over
-//     //Has anyone won?
-//     if (gameOver) {
-//         break;
-//     }
-// };
+function resetBoard(){
+    cleanBoard();
+    score_p1.innerHTML = 0;
+    score_p2.innerHTML = 0;
+}
